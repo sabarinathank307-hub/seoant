@@ -832,7 +832,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 100px 8%;
+    padding: 100px 8% 25px;
 
     background: var(--green-soft);
 }
@@ -975,7 +975,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 100px 8%;
+    padding: 25px 8% 100px;
 
     background: var(--green-light);
 }
@@ -1638,9 +1638,12 @@ header {
 
     /* Services */
 
-    #services,
-    #process {
+    #services {
         padding: 25px 20px 70px;
+    }
+
+    #process {
+        padding: 25px 20px 20px;
     }
 
     .services-heading h2,
@@ -1679,7 +1682,7 @@ header {
     /* Contact */
 
     .contact-section {
-        padding: 70px 20px;
+        padding: 20px 20px 70px;
     }
 
     .contact-content h2 {
