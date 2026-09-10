@@ -1521,7 +1521,7 @@ header {
     .hero-wrapper {
         min-height: auto;
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 64px;
     }
 
     .hero-label {
@@ -1547,7 +1547,9 @@ header {
     }
 
     .hero-visual {
-        min-height: 390px;
+        width: 100%;
+        min-height: 540px;
+        margin-top: 8px;
     }
 
     .hero-shape {
@@ -1556,10 +1558,11 @@ header {
     }
 
     .hero-image {
-        width: min(320px, 90vw);
-        height: 380px;
+        width: min(420px, 112vw);
+        height: 520px;
         right: 50%;
         transform: translateX(50%);
+        bottom: 0;
     }
 
 
@@ -1587,18 +1590,18 @@ header {
     }
 
     .traffic-card {
-        left: 0;
-        top: 85px;
+        left: 4px;
+        top: 95px;
     }
 
     .ranking-card {
-        right: 0;
-        top: 190px;
+        right: 4px;
+        top: 245px;
     }
 
     .growth-card {
         left: 20px;
-        bottom: 15px;
+        bottom: 20px;
     }
 
 
