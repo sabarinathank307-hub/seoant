@@ -253,11 +253,12 @@ header {
     position: absolute;
     width: clamp(700px, 47vw, 900px);
     height: clamp(1555px, 104vw, 2000px);
-    right: -20px;
+    left: 50%;
     bottom: -15px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    transform: translateX(-50%);
     z-index: 2;
 }
 
@@ -1567,8 +1568,8 @@ header {
     .hero-image {
         width: min(100%, 340px);
         height: clamp(250px, 72vw, 315px);
-        right: 50%;
-        transform: translateX(50%);
+        left: 50%;
+        transform: translateX(-50%);
         bottom: 0;
     }
 
