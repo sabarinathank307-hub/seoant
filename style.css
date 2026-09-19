@@ -54,9 +54,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.96);
     border-bottom: 1px solid #eeeeee;
 }
 
@@ -100,44 +98,8 @@ header {
     transition: color 0.25s ease;
 }
 
-.nav-links a[href="#home"] {
-    position: relative;
-    color: var(--green);
-}
-
-.nav-links a[href="#home"]::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -12px;
-    left: 0;
-    height: 2px;
-    background: var(--green);
-}
-
 .nav-links a:hover {
     color: var(--green);
-}
-
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 9px 17px;
-
-    border-radius: 999px;
-    background: #13bd80;
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 700;
-
-    transition: 0.25s ease;
-}
-
-.nav-cta:hover {
-    background: #0cae73;
-    transform: translateY(-2px);
 }
 
 
@@ -149,8 +111,8 @@ header {
     position: relative;
     overflow: hidden;
 
-    min-height: clamp(590px, 68vh, 660px);
-    padding: clamp(15px, 2vw, 28px) 3%;
+    min-height: 440px;
+    padding: 4px 7%;
 
     background:
         radial-gradient(
@@ -162,14 +124,14 @@ header {
 }
 
 .hero-wrapper {
-    width: min(1250px, calc(100% - 32px));
-    min-height: clamp(400px, 62vh, 580px);
+    max-width: 1250px;
+    min-height: 360px;
     margin: auto;
 
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
-    gap: clamp(24px, 3vw, 56px);
+    gap: 50px;
 }
 
 .hero-content {
@@ -193,7 +155,7 @@ header {
     margin: 0;
 
     color: #10182b;
-    font-size: clamp(48px, 4.3vw, 62px);
+    font-size: 62px;
     line-height: 1.08;
     font-weight: 800;
     letter-spacing: -2px;
@@ -237,37 +199,57 @@ header {
 
 .primary-btn:hover {
     transform: translateY(-3px);
-    background: #0cc682;
+    background: #0da96f;
 }
 
 
-/* ===== HERO IMAGE PERFECT POSITION ===== */
+/* =========================================================
+   HERO VISUAL
+========================================================= */
 
 .hero-visual {
     position: relative;
-    width: 100%;
-    height: clamp(500px, 62vh, 580px);
+
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-shape {
+    position: absolute;
+
+    width: 570px;
+    height: 570px;
+
+    top: 0;
+    right: -20px;
+
+    border-radius: 50%;
+    background: #d9f7ea;
+
+    z-index: 0;
 }
 
 .hero-image {
-    position: absolute;
-    width: clamp(700px, 47vw, 900px);
-    height: clamp(1555px, 104vw, 2000px);
-    left: 50%;
-    bottom: -15px;
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 100%);
+    height: 560px;
+
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    transform: translateX(-50%);
-    z-index: 2;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
     object-position: center bottom;
-    display: block;
 }
 
 
@@ -394,8 +376,8 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 0 7% 25px;
-    
+    padding: 100px 7%;
+
     background: var(--white);
 }
 
@@ -590,7 +572,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 25px 8% 100px;
+    padding: 100px 8%;
 
     background: var(--green-soft);
 }
@@ -703,12 +685,7 @@ header {
 }
 
 .heading-line {
-    width: 45px;
-    height: 2px;
-
-    margin: -4px auto 18px;
-
-    background: #5fc99a;
+    display: none;
 }
 
 .services-heading h2 {
@@ -832,7 +809,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 100px 8% 25px;
+    padding: 100px 8%;
 
     background: var(--green-soft);
 }
@@ -975,7 +952,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    padding: 25px 8% 100px;
+    padding: 100px 8%;
 
     background: var(--green-light);
 }
@@ -1342,8 +1319,8 @@ header {
     }
 
     .hero-image {
-        width: clamp(420px, 47vw, 700px);
-        height: clamp(480px, 55vw, 1555px);
+        width: min(560px, 100%);
+        height: 620px;
     }
 
     .about-wrapper {
@@ -1376,24 +1353,21 @@ header {
     /* Hero */
 
     #home {
-        padding: 30px 30px;
+        padding: 16px 30px;
     }
 
     .hero-wrapper {
-        max-width: 1250px;
-        margin: auto;
-        min-height: 280px;
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        align-items: center;
-        gap: 50px;
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 24px;
     }
 
     .hero-content {
         max-width: 700px;
-    margin: auto;
-    align-self: start;
-    padding-top: 80px;
+
+        margin: auto;
     }
 
     .hero-content > p {
@@ -1406,8 +1380,7 @@ header {
     }
 
     .hero-visual {
-        height: clamp(500px, 62vw, 560px);
-        min-height: 0;
+        min-height: 340px;
     }
 
 
@@ -1486,9 +1459,7 @@ header {
     /* Navbar */
 
     .navbar {
-        flex-wrap: wrap;
-        row-gap: 6px;
-        padding: 10px 14px;
+        padding: 15px 18px;
     }
 
     .logo {
@@ -1496,19 +1467,11 @@ header {
     }
 
     .nav-links {
-        order: 3;
-        width: 100%;
         gap: 10px;
-        justify-content: center;
     }
 
     .nav-links a {
         font-size: 11px;
-    }
-
-    .nav-cta {
-        padding: 8px 12px;
-        font-size: 12px;
     }
 
 
@@ -1517,14 +1480,13 @@ header {
     #home {
         min-height: auto;
 
-        padding: clamp(20px, 5vw, 32px) 16px clamp(24px, 6vw, 36px);
+        padding: 6px 20px;
     }
 
     .hero-wrapper {
-        width: 100%;
         min-height: auto;
-        grid-template-columns: 1fr;
-        gap: clamp(12px, 3vw, 22px);
+
+        gap: 16px;
     }
 
     .hero-label {
@@ -1532,13 +1494,13 @@ header {
     }
 
     .hero-content h1 {
-        font-size: clamp(34px, 10vw, 40px);
+        font-size: 40px;
 
         letter-spacing: -1px;
     }
 
     .hero-content > p {
-        margin: clamp(16px, 4vw, 22px) 0 clamp(20px, 5vw, 28px);
+        margin: 22px 0 28px;
 
         font-size: 15px;
     }
@@ -1546,31 +1508,21 @@ header {
     .hero-buttons {
         flex-direction: column;
 
-        gap: 10px;
-    }
-
-    .primary-btn {
-        padding: 12px 22px;
+        gap: 15px;
     }
 
     .hero-visual {
-        width: 100%;
-        height: clamp(300px, 78vw, 350px);
-        min-height: 0;
-        margin-top: 0;
+        min-height: 260px;
     }
 
     .hero-shape {
-        width: min(360px, 100vw - 40px);
-        height: min(360px, 100vw - 40px);
+        width: 360px;
+        height: 360px;
     }
 
     .hero-image {
-        width: min(100%, 340px);
-        height: clamp(250px, 72vw, 315px);
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0;
+        width: min(100%, 360px);
+        height: clamp(320px, 82vw, 360px);
     }
 
 
@@ -1598,25 +1550,25 @@ header {
     }
 
     .traffic-card {
-        left: clamp(4px, 3vw, 12px);
-        top: clamp(28px, 9vw, 42px);
+        left: -5px;
+        top: 85px;
     }
 
     .ranking-card {
-        right: clamp(4px, 3vw, 12px);
-        top: clamp(116px, 31vw, 138px);
+        right: -5px;
+        top: 190px;
     }
 
     .growth-card {
-        left: clamp(12px, 6vw, 24px);
-        bottom: clamp(10px, 3vw, 18px);
+        left: 20px;
+        bottom: 15px;
     }
 
 
     /* About */
 
     #about {
-        padding: clamp(24px, 6vw, 32px) 20px 20px;
+        padding: 70px 20px;
     }
 
     .about-visual {
@@ -1648,11 +1600,11 @@ header {
     }
 
     .about-info h2 {
-        font-size: clamp(32px, 9vw, 36px);
+        font-size: 36px;
     }
 
     .about-stats {
-        gap: 22px 30px;
+        gap: 25px;
 
         flex-wrap: wrap;
     }
@@ -1660,12 +1612,9 @@ header {
 
     /* Services */
 
-    #services {
-        padding: 25px 20px 70px;
-    }
-
+    #services,
     #process {
-        padding: 25px 20px 20px;
+        padding: 70px 20px;
     }
 
     .services-heading h2,
@@ -1704,11 +1653,11 @@ header {
     /* Contact */
 
     .contact-section {
-        padding: 20px 20px 70px;
+        padding: 70px 20px;
     }
 
     .contact-content h2 {
-        font-size: clamp(32px, 9vw, 36px);
+        font-size: 36px;
     }
 
     .contact-content > p {
@@ -1721,11 +1670,6 @@ header {
 
     .contact-item {
         gap: 12px;
-        min-width: 0;
-    }
-
-    .contact-item strong {
-        overflow-wrap: anywhere;
     }
 
     .contact-shape-left {
