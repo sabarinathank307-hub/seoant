@@ -230,6 +230,7 @@ header {
    HERO VISUAL
 ========================================================= */
 
+
 .hero-visual {
     position: relative;
 
@@ -240,155 +241,57 @@ header {
     justify-content: center;
 }
 
+/* 3D Hero - subtle background circle hidden; image is transparent */
 .hero-shape {
-    position: absolute;
-
-    width: 570px;
-    height: 570px;
-
-    top: 0;
-    right: -20px;
-
-    border-radius: 50%;
-    background: #d9f7ea;
-
-    z-index: 0;
+    display: none;
 }
 
 .hero-image {
     position: relative;
     z-index: 2;
 
-    width: min(650px, 100%);
-    height: 560px;
+    width: min(680px, 100%);
+    height: auto;
+    min-height: 480px;
 
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 }
 
 .hero-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 600px;
 
     object-fit: contain;
-    object-position: center bottom;
+    object-position: center center;
+
+    /* Subtle drop shadow to ground the 3D image on the hero gradient */
+    filter: drop-shadow(0 24px 60px rgba(19, 189, 128, 0.14))
+            drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
 }
 
 
 /* =========================================================
-   FLOATING HERO CARDS
+   FLOATING HERO CARDS — hidden (3D elements now baked into image)
 ========================================================= */
 
 .floating-card {
-    position: absolute;
-    z-index: 4;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 14px 20px;
-
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
-
-    backdrop-filter: blur(8px);
-}
-
-.floating-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    background: #dff8ed;
-
-    color: #12ae73;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.floating-card strong {
-    display: block;
-
-    color: #172033;
-    font-size: 16px;
-}
-
-.floating-card small {
-    display: block;
-    margin-top: 3px;
-
-    color: var(--text);
-    font-size: 12px;
-}
-
-.traffic-card {
-    left: 0;
-    top: 145px;
-}
-
-.ranking-card {
-    right: -10px;
-    top: 270px;
-}
-
-.growth-card {
-    left: 70px;
-    bottom: 35px;
+    display: none;
 }
 
 
 /* =========================================================
-   HERO DECORATIONS
+   HERO DECORATIONS — hidden (3D image has its own elements)
 ========================================================= */
 
-.decor-circle {
-    position: absolute;
-
-    border: 2px solid #15bb82;
-    border-radius: 50%;
-
-    z-index: 1;
-}
-
-.circle-one {
-    width: 32px;
-    height: 32px;
-
-    top: 80px;
-    right: 40px;
-}
-
-.circle-two {
-    width: 18px;
-    height: 18px;
-
-    bottom: 90px;
-    left: 20px;
-}
-
+.decor-circle,
 .decor-square {
-    position: absolute;
-
-    width: 25px;
-    height: 25px;
-
-    left: 35px;
-    top: 100px;
-
-    border: 2px solid #15bb82;
-
-    transform: rotate(45deg);
-
-    z-index: 1;
+    display: none;
 }
+
+
 
 
 /* =========================================================
@@ -1325,6 +1228,10 @@ header {
     font-size: 13px;
 }
 
+.footer-bottom a:hover {
+    color: #45c889 !important;
+}
+
 
 /* =========================================================
    TABLET - 1100px
@@ -1403,8 +1310,16 @@ header {
     }
 
     .hero-visual {
-        min-height: 340px;
+        min-height: 300px;
     }
+
+    .hero-image {
+        width: min(540px, 100%);
+        height: auto;
+        min-height: 300px;
+    }
+
+
 
 
     /* About */
@@ -1544,9 +1459,11 @@ header {
     }
 
     .hero-image {
-        width: min(100%, 360px);
-        height: clamp(320px, 82vw, 360px);
+        width: min(100%, 420px);
+        height: auto;
+        min-height: 280px;
     }
+
 
 
     /* Floating Cards */
