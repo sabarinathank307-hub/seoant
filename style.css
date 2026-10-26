@@ -1808,10 +1808,12 @@ header {
     display: block !important;
     width: 80% !important;
     margin-left: 10% !important;
-    height: 80px !important;
-    max-height: 440px !important;
+    height: auto !important;
+    min-height: 80px !important;
+    max-height: none !important;
     overflow: hidden !important;
     background: var(--white) !important;
+    padding: 8px 0 !important;
 }
 
 .seo-tools-track {
