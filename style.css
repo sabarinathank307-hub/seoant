@@ -148,7 +148,7 @@ header {
 
 .hero-wrapper {
     max-width: 1250px;
-    min-height: clamp(500px, 42vw, 650px);
+    min-height: 0;
     margin: auto;
 
     display: grid;
@@ -234,6 +234,8 @@ header {
 
 .hero-visual {
     position: relative;
+
+    align-self: end;
 
     display: flex;
     align-items: center;
@@ -1316,6 +1318,7 @@ header {
     }
 
     .hero-visual {
+        align-self: auto;
         min-height: 0;
     }
 
