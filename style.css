@@ -1237,32 +1237,38 @@ header {
 
 .site-footer {
     padding: 70px 8% 25px;
-
     background: #101c17;
-
     color: var(--white);
 }
 
 .footer-container {
-    max-width: 1100px;
-
+    max-width: 1200px;
     margin: auto;
-
     padding-bottom: 55px;
-
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(24px, 4vw, 50px);
+}
 
-    gap: 50px;
+.footer-brand,
+.footer-links {
+    min-width: 0;
 }
 
 .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 18px;
-
     color: var(--white);
-
     font-size: 28px;
     font-weight: 800;
+    transition: color 0.2s ease;
+}
+
+.footer-logo:hover {
+    color: #45c889;
 }
 
 .footer-logo span {
@@ -1286,25 +1292,23 @@ header {
 .footer-links {
     display: flex;
     flex-direction: column;
-
     gap: 11px;
 }
 
 .footer-links h3 {
     margin: 0 0 20px;
-
     color: var(--white);
-
     font-size: 16px;
     font-weight: 700;
 }
 
 .footer-links a,
 .footer-links span {
+    min-width: 0;
     color: #aab8b1;
-
     font-size: 14px;
-
+    line-height: 1.55;
+    overflow-wrap: anywhere;
     transition: 0.25s ease;
 }
 
@@ -1320,31 +1324,32 @@ header {
 ========================================================= */
 
 .footer-bottom {
-    max-width: 1100px;
-
+    max-width: 1200px;
     margin: auto;
-
     padding-top: 22px;
-
     border-top: 1px solid #2a3932;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
 }
 
 .footer-bottom p {
     margin: 0;
-
     color: #7f9088;
-
     font-size: 13px;
+    overflow-wrap: anywhere;
 }
 
 .footer-bottom a:hover {
     color: #45c889 !important;
+}
+
+.footer-links a:focus-visible,
+.footer-logo:focus-visible,
+.footer-bottom a:focus-visible {
+    outline: 2px solid #45c889;
+    outline-offset: 3px;
 }
 
 
@@ -2040,7 +2045,7 @@ header {
 
 /* Shared navigation and service-page layouts */
 .nav-dropdown {
-    position: relative;
+    position: static;
 }
 
 .nav-dropdown-toggle {
@@ -2107,8 +2112,8 @@ header {
 
 .service-menu {
     position: absolute;
-    top: calc(100% + 22px);
-    left: 50%;
+    top: calc(100% + 1px);
+    left: var(--service-menu-left, 0px);
     z-index: 1100;
     display: flex;
     flex-direction: column;
@@ -2123,7 +2128,7 @@ header {
     list-style: none;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 10px);
+    transform: translateY(10px);
     transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
     visibility: hidden;
 }
@@ -2131,7 +2136,7 @@ header {
 .nav-dropdown.is-open .service-menu {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, 0);
+    transform: translateY(0);
     transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s;
     visibility: visible;
 }
@@ -2489,20 +2494,7 @@ header {
     box-shadow: none;
 }
 
-.service-footer {
-    padding: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text);
-    text-align: center;
-    font-size: 13px;
-}
-
-.service-footer a {
-    color: var(--green);
-    font-weight: 700;
-}
-
-@media (max-width: 760px) {
+@media (max-width: 900px) {
     header {
         z-index: 1200;
     }
@@ -2569,10 +2561,12 @@ header {
         pointer-events: auto;
         transform: none;
         visibility: visible;
+        left: auto;
+        top: auto;
     }
 
     .nav-dropdown.is-open .service-menu {
-        display: grid;
+        display: flex;
     }
 
     .service-menu a {
@@ -2594,21 +2588,20 @@ header {
     }
 }
 
-@media (min-width: 761px) and (hover: hover) {
+@media (min-width: 901px) and (hover: hover) {
     .nav-dropdown::after {
         position: absolute;
         top: 100%;
-        left: 50%;
+        left: var(--service-menu-left, 0px);
         width: min(450px, calc(100vw - 32px));
         height: 22px;
         content: "";
-        transform: translateX(-50%);
     }
 
     .nav-dropdown:hover:not(.is-dismissed) .service-menu {
         opacity: 1;
         pointer-events: auto;
-        transform: translate(-50%, 0);
+        transform: translateY(0);
         transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s;
         visibility: visible;
     }

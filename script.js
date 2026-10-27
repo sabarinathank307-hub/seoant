@@ -3,8 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
 	const navigation = document.querySelector(".nav-links");
 	const serviceDropdown = document.querySelector(".nav-dropdown");
 	const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+	const serviceMenu = document.querySelector(".service-menu");
+	const navbar = serviceDropdown && serviceDropdown.closest(".navbar");
+	let isMobileNavigation = window.matchMedia("(max-width: 900px)").matches;
+	const positionServiceMenu = function () {
+		if (!serviceDropdown || !serviceMenu || !navbar || window.matchMedia("(max-width: 900px)").matches) {
+			return;
+		}
+
+		const dropdownBounds = serviceDropdown.getBoundingClientRect();
+		const navbarBounds = navbar.getBoundingClientRect();
+		const menuWidth = serviceMenu.offsetWidth;
+		const left = Math.max(16, Math.min(
+			dropdownBounds.left + dropdownBounds.width / 2 - menuWidth / 2,
+			window.innerWidth - menuWidth - 16
+		));
+		navbar.style.setProperty("--service-menu-left", `${left - navbarBounds.left}px`);
+	};
 	const setDropdownOpen = function (isOpen) {
 		if (serviceDropdown && dropdownToggle) {
+			if (isOpen) {
+				positionServiceMenu();
+			}
 			serviceDropdown.classList.toggle("is-open", isOpen);
 			serviceDropdown.classList.toggle("is-dismissed", !isOpen);
 			dropdownToggle.setAttribute("aria-expanded", String(isOpen));
@@ -33,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 
 		navigation.addEventListener("click", function (event) {
-			if (event.target instanceof Element && event.target.closest("a") && window.matchMedia("(max-width: 760px)").matches) {
+			if (event.target instanceof Element && event.target.closest("a") && window.matchMedia("(max-width: 900px)").matches) {
 				closeNavigation();
 				if (dropdownToggle) {
 					dropdownToggle.blur();
@@ -49,13 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 
 		serviceDropdown.addEventListener("pointerenter", function () {
-			if (window.matchMedia("(min-width: 761px) and (hover: hover)").matches) {
+			if (window.matchMedia("(min-width: 901px) and (hover: hover)").matches) {
 				setDropdownOpen(true);
 			}
 		});
 
 		serviceDropdown.addEventListener("pointerleave", function () {
-			if (window.matchMedia("(min-width: 761px) and (hover: hover)").matches && !serviceDropdown.contains(document.activeElement)) {
+			if (window.matchMedia("(min-width: 901px) and (hover: hover)").matches && !serviceDropdown.contains(document.activeElement)) {
 				setDropdownOpen(false);
 			}
 		});
@@ -80,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			event.target instanceof Node &&
 			!navigation.contains(event.target) &&
 			!menuToggle.contains(event.target) &&
-			window.matchMedia("(max-width: 760px)").matches
+			window.matchMedia("(max-width: 900px)").matches
 		) {
 			closeNavigation();
 		}
@@ -96,6 +116,16 @@ document.addEventListener("DOMContentLoaded", function () {
 			} else if (dropdownWasOpen && dropdownToggle) {
 				dropdownToggle.focus();
 			}
+		}
+	});
+
+	window.addEventListener("resize", function () {
+		const isMobile = window.matchMedia("(max-width: 900px)").matches;
+		if (isMobile !== isMobileNavigation) {
+			isMobileNavigation = isMobile;
+			closeNavigation();
+		} else if (dropdownToggle && dropdownToggle.getAttribute("aria-expanded") === "true") {
+			positionServiceMenu();
 		}
 	});
 
