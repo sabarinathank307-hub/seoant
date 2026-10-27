@@ -41,6 +41,11 @@
       "permanent": true
     },
     {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
@@ -78,6 +83,10 @@
     {
       "source": "/terms-of-use",
       "destination": "/terms-of-use.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
     }
   ]
 }
