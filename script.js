@@ -1,4 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
+	const menuToggle = document.querySelector(".menu-toggle");
+	const navigation = document.querySelector(".nav-links");
+	const serviceDropdown = document.querySelector(".nav-dropdown");
+	const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+	const setDropdownOpen = function (isOpen) {
+		if (serviceDropdown && dropdownToggle) {
+			serviceDropdown.classList.toggle("is-open", isOpen);
+			dropdownToggle.setAttribute("aria-expanded", String(isOpen));
+		}
+	};
+
+	if (menuToggle && navigation) {
+		menuToggle.addEventListener("click", function () {
+			const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+			menuToggle.setAttribute("aria-expanded", String(!isOpen));
+			menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+			navigation.classList.toggle("is-open", !isOpen);
+		});
+
+		navigation.addEventListener("click", function (event) {
+			if (event.target instanceof Element && event.target.closest("a") && window.matchMedia("(max-width: 760px)").matches) {
+				navigation.classList.remove("is-open");
+				menuToggle.setAttribute("aria-expanded", "false");
+				menuToggle.setAttribute("aria-label", "Open navigation menu");
+			}
+		});
+
+		document.addEventListener("keydown", function (event) {
+			if (event.key === "Escape") {
+				navigation.classList.remove("is-open");
+				menuToggle.setAttribute("aria-expanded", "false");
+				menuToggle.setAttribute("aria-label", "Open navigation menu");
+				setDropdownOpen(false);
+			}
+		});
+	}
+
+	if (serviceDropdown && dropdownToggle) {
+		dropdownToggle.addEventListener("click", function () {
+			const isOpen = dropdownToggle.getAttribute("aria-expanded") === "true";
+			setDropdownOpen(!isOpen);
+		});
+
+		serviceDropdown.addEventListener("mouseenter", function () {
+			setDropdownOpen(true);
+		});
+
+		serviceDropdown.addEventListener("mouseleave", function () {
+			setDropdownOpen(false);
+		});
+
+		serviceDropdown.addEventListener("focusin", function () {
+			setDropdownOpen(true);
+		});
+
+		serviceDropdown.addEventListener("focusout", function (event) {
+			if (!serviceDropdown.contains(event.relatedTarget)) {
+				setDropdownOpen(false);
+			}
+		});
+	}
+
 	const section = document.querySelector(".seo-tools-section");
 	const track = document.querySelector(".seo-tools-track");
 

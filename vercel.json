@@ -1,0 +1,83 @@
+{
+  "redirects": [
+    {
+      "source": "/local-seo.html",
+      "destination": "/local-seo",
+      "permanent": true
+    },
+    {
+      "source": "/technical-seo.html",
+      "destination": "/technical-seo",
+      "permanent": true
+    },
+    {
+      "source": "/on-page-seo.html",
+      "destination": "/on-page-seo",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce-seo.html",
+      "destination": "/ecommerce-seo",
+      "permanent": true
+    },
+    {
+      "source": "/seo-audit.html",
+      "destination": "/seo-audit",
+      "permanent": true
+    },
+    {
+      "source": "/seo-consulting.html",
+      "destination": "/seo-consulting",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use.html",
+      "destination": "/terms-of-use",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/local-seo",
+      "destination": "/local-seo.html"
+    },
+    {
+      "source": "/technical-seo",
+      "destination": "/technical-seo.html"
+    },
+    {
+      "source": "/on-page-seo",
+      "destination": "/on-page-seo.html"
+    },
+    {
+      "source": "/ecommerce-seo",
+      "destination": "/ecommerce-seo.html"
+    },
+    {
+      "source": "/seo-audit",
+      "destination": "/seo-audit.html"
+    },
+    {
+      "source": "/seo-consulting",
+      "destination": "/seo-consulting.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/terms-of-use.html"
+    }
+  ]
+}

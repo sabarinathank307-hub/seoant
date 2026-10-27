@@ -93,17 +93,25 @@
                 <span class="logo-icon">🐜</span>
             </div>
 
-            <ul class="nav-links">
+            <ul class="nav-links" id="primary-navigation">
                 <li>
-                    <a href="#home">Home</a>
+                    <a href="#home" aria-current="page">Home</a>
                 </li>
 
                 <li>
                     <a href="#about">About</a>
                 </li>
 
-                <li>
-                    <a href="#services">Services</a>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="service-menu">Services <span aria-hidden="true">⌄</span></button>
+                    <ul class="service-menu" id="service-menu">
+                        <li><a href="/local-seo">Local SEO</a></li>
+                        <li><a href="/technical-seo">Technical SEO</a></li>
+                        <li><a href="/on-page-seo">On-Page SEO</a></li>
+                        <li><a href="/ecommerce-seo">E-commerce SEO</a></li>
+                        <li><a href="/seo-audit">SEO Audit</a></li>
+                        <li><a href="/seo-consulting">SEO Consulting</a></li>
+                    </ul>
                 </li>
 
                 <li>
@@ -114,6 +122,10 @@
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
+
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span><span></span><span></span>
+            </button>
 
         </nav>
     </header>
@@ -431,25 +443,25 @@
         <!-- Services Grid -->
         <div class="services-grid">
 
-            <!-- Card 1 -->
+            <!-- Service cards link to their dedicated service pages. -->
             <div class="service-card">
 
                 <div class="service-icon">
-                    🔍
+                    📍
                 </div>
 
                 <div class="service-content">
 
                     <h3>
-                        Keyword Research
+                        Local SEO
                     </h3>
 
                     <p>
-                        Find the right keywords your customers are searching for
-                        and build a strategy that targets valuable search traffic.
+                        Help nearby customers find your business with location-focused
+                        search visibility and a stronger local presence.
                     </p>
 
-                    <a href="#contact">
+                    <a href="/local-seo">
                         Learn More →
                     </a>
 
@@ -458,7 +470,6 @@
             </div>
 
 
-            <!-- Card 2 -->
             <div class="service-card">
 
                 <div class="service-icon">
@@ -476,7 +487,7 @@
                         to improve search visibility and user experience.
                     </p>
 
-                    <a href="#contact">
+                    <a href="/on-page-seo">
                         Learn More →
                     </a>
 
@@ -485,7 +496,6 @@
             </div>
 
 
-            <!-- Card 3 -->
             <div class="service-card">
 
                 <div class="service-icon">
@@ -495,15 +505,15 @@
                 <div class="service-content">
 
                     <h3>
-                        Off-Page SEO
+                        Technical SEO
                     </h3>
 
                     <p>
-                        Build high-quality backlinks and strengthen your website
-                        authority to rank higher and gain trust online.
+                        Improve site speed, crawlability, and structure so search
+                        engines can access and understand your website.
                     </p>
 
-                    <a href="#contact">
+                    <a href="/technical-seo">
                         Learn More →
                     </a>
 
@@ -512,30 +522,47 @@
             </div>
 
 
-            <!-- Card 4 -->
             <div class="service-card">
 
                 <div class="service-icon">
-                    📊
+                    🛒
                 </div>
 
                 <div class="service-content">
 
                     <h3>
-                        Technical SEO
+                        E-commerce SEO
                     </h3>
 
                     <p>
-                        Improve your website's technical health, speed, and structure
-                        to help search engines crawl and index better.
+                        Make product and category pages easier to discover and turn
+                        organic shopping searches into qualified visits.
                     </p>
 
-                    <a href="#contact">
+                    <a href="/ecommerce-seo">
                         Learn More →
                     </a>
 
                 </div>
 
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🧭</div>
+                <div class="service-content">
+                    <h3>SEO Audit</h3>
+                    <p>Get a clear review of technical, content, and on-page issues with prioritized opportunities for improvement.</p>
+                    <a href="/seo-audit">Learn More →</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <div class="service-content">
+                    <h3>SEO Consulting</h3>
+                    <p>Get practical, experienced SEO guidance tailored to your business goals, team, and growth stage.</p>
+                    <a href="/seo-consulting">Learn More →</a>
+                </div>
             </div>
 
         </div>
@@ -872,12 +899,12 @@
         <div class="footer-links">
             <h3>Services</h3>
 
-            <a href="#services">Keyword Research</a>
-            <a href="#services">On-Page SEO</a>
-            <a href="#services">Off-Page SEO</a>
-            <a href="#services">Technical SEO</a>
-            <a href="#services">Local SEO</a>
-            <a href="#services">E-commerce SEO</a>
+            <a href="/local-seo">Local SEO</a>
+            <a href="/technical-seo">Technical SEO</a>
+            <a href="/on-page-seo">On-Page SEO</a>
+            <a href="/ecommerce-seo">E-commerce SEO</a>
+            <a href="/seo-audit">SEO Audit</a>
+            <a href="/seo-consulting">SEO Consulting</a>
         </div>
 
 
@@ -908,9 +935,9 @@
         </p>
 
         <p>
-            <a href="privacy-policy.html" style="color:#7f9088;text-decoration:none;">Privacy Policy</a>
+            <a href="/privacy-policy" style="color:#7f9088;text-decoration:none;">Privacy Policy</a>
             &nbsp;·&nbsp;
-            <a href="terms-of-use.html" style="color:#7f9088;text-decoration:none;">Terms of Use</a>
+            <a href="/terms-of-use" style="color:#7f9088;text-decoration:none;">Terms of Use</a>
         </p>
 
     </div>
