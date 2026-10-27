@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const setDropdownOpen = function (isOpen) {
 		if (serviceDropdown && dropdownToggle) {
 			serviceDropdown.classList.toggle("is-open", isOpen);
+			serviceDropdown.classList.toggle("is-dismissed", !isOpen);
 			dropdownToggle.setAttribute("aria-expanded", String(isOpen));
 		}
 	};
@@ -23,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				navigation.classList.remove("is-open");
 				menuToggle.setAttribute("aria-expanded", "false");
 				menuToggle.setAttribute("aria-label", "Open navigation menu");
+				setDropdownOpen(false);
+				if (dropdownToggle) {
+					dropdownToggle.blur();
+				}
 			}
 		});
 
@@ -39,23 +44,36 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (serviceDropdown && dropdownToggle) {
 		dropdownToggle.addEventListener("click", function () {
 			const isOpen = dropdownToggle.getAttribute("aria-expanded") === "true";
-			setDropdownOpen(!isOpen);
+			const isMobile = window.matchMedia("(max-width: 760px)").matches;
+			setDropdownOpen(isMobile ? !isOpen : true);
 		});
 
-		serviceDropdown.addEventListener("mouseenter", function () {
-			setDropdownOpen(true);
+		serviceDropdown.addEventListener("pointerenter", function () {
+			if (window.matchMedia("(min-width: 761px) and (hover: hover)").matches) {
+				setDropdownOpen(true);
+			}
 		});
 
-		serviceDropdown.addEventListener("mouseleave", function () {
-			setDropdownOpen(false);
+		serviceDropdown.addEventListener("pointerleave", function () {
+			if (window.matchMedia("(min-width: 761px) and (hover: hover)").matches) {
+				setDropdownOpen(false);
+			}
 		});
 
 		serviceDropdown.addEventListener("focusin", function () {
-			setDropdownOpen(true);
+			if (window.matchMedia("(min-width: 761px)").matches) {
+				setDropdownOpen(true);
+			}
 		});
 
 		serviceDropdown.addEventListener("focusout", function (event) {
 			if (!serviceDropdown.contains(event.relatedTarget)) {
+				setDropdownOpen(false);
+			}
+		});
+
+		document.addEventListener("click", function (event) {
+			if (event.target instanceof Node && !serviceDropdown.contains(event.target)) {
 				setDropdownOpen(false);
 			}
 		});
